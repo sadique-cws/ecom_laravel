@@ -112,7 +112,8 @@ class Cart extends Controller
     $user = Auth::User();
     $cond = [['ordered',true],['user_id',$user->id]];
     $order = Order::where($cond)->orderBy('id','DESC')->get();
-    return view('home.myorder',["order"=>$order]);
+    // return view('home.myorder',["order"=>$order]);
+    return $order;
 }
    public function addToCart($item_id){
             $product = Product::find($item_id);
